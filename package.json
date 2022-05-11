@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js",
+    "start": "nodemon ./src/index.js --exec babel-node -e js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "3.7.0",
+    "bcryptjs": "2.4.3",
     "dotenv": "16.0.0",
     "graphql": "16.4.0",
+    "jsonwebtoken": "8.5.1",
     "mongoose": "6.3.3"
   },
   "devDependencies": {
