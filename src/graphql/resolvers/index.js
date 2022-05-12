@@ -1,4 +1,4 @@
-import { postQuery } from './post';
+import { postMutation, postQuery } from './post';
 import { userQuery, userMutation } from './user';
 
 const resolvers = {
@@ -8,6 +8,7 @@ const resolvers = {
   },
   Mutation: {
     ...userMutation,
+    ...postMutation
   },
 };
 
