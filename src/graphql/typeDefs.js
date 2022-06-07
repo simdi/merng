@@ -51,7 +51,6 @@ const typeDefs = gql`
     createComment(postId: ID!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likeComment(postId: ID!): Post!
-    deleteComment(postId: ID!, commentId: ID!): Post!
   }
 `;
 
