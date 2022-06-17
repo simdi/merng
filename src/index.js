@@ -11,7 +11,7 @@ const mongoConnection = process.env.MONGO_CONNECTION;
 
 const pubsub = new PubSub();
 
-const server = new ApolloServer({
+const apollo = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req, pubsub }),
@@ -19,9 +19,9 @@ const server = new ApolloServer({
 
 mongoose.connect(mongoConnection, { useNewUrlParser: true }).then(() => {
   console.log('MongoDB connected');
-  return server.listen({ port: PORT }, () => {
-    console.log(`server ready at http://localhost:${PORT}${server.graphqlPath}`)
-    console.log(`Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`)
+  return apollo.listen({ port: PORT }, () => {
+    console.log(`server ready at http://localhost:${PORT}${apollo.graphqlPath}`)
+    console.log(`Subscriptions ready at ws://localhost:${PORT}${apollo.subscriptions}`)
   });
 }).then(res => {
   console.log(`Server running at ${res.url}`);
