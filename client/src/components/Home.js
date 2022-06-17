@@ -7,8 +7,26 @@ const Home = () => {
       <div>
         loremipsom
       </div>
+      <div>
+        loremipsom
+      </div>
+      <div>
+        loremipsom
+      </div>
+      <div>
+        loremipsom
+      </div>
+      <div>
+        loremipsom
+      </div>
+      <div>
+        loremipsom
+      </div>
+      <div>
+        loremipsom
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

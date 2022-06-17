@@ -23,12 +23,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <MenuBar />
-        <Routes>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-        </Routes>
+        <div className="ui container">
+          <MenuBar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="login" element={<Login />} />
+            <Route exact path="register" element={<Register />} />
+          </Routes>
+        </div>
       </Router>
     </ApolloProvider>
   );
