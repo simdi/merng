@@ -27,6 +27,7 @@ export const postQuery = {
 
 export const postMutation = {
   createPost: async(_, { body }, context) => {
+    console.log({ context });
     const user = checkAuthHeader(context);
 
     const newPost = new Post({
@@ -37,6 +38,9 @@ export const postMutation = {
     });
 
     const post = await newPost.save();
+    context.pubsub.publish('NEW_POST', {
+      newPost: post
+    })
     return post;
   },
   deletePost: async(_, { postId }, context) => {
@@ -53,5 +57,11 @@ export const postMutation = {
     } catch (error) {
       throw new Error(error);
     }
+  }
+}
+
+export const postSubscription = {
+  newPost: {
+    subscribe: (_, __, { pubsub }) => pubsub.asyncIterator('NEW_POST')
   }
 }

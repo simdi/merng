@@ -1,4 +1,4 @@
-import { postMutation, postQuery } from './post';
+import { postMutation, postQuery, postSubscription } from './post';
 import { userQuery, userMutation } from './user';
 import { commentQuery, commentMutation } from './comment';
 
@@ -13,6 +13,9 @@ const resolvers = {
     ...postMutation,
     ...commentMutation,
   },
+  Subscription: {
+    ...postSubscription
+  }
 };
 
 module.exports = resolvers;
