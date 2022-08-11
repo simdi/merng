@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Login = () => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    console.log('Login');
+  });
+
   return (
-    <div>Login</div>
-  )
+    <div>
+      <button onClick={() => setCount(count+1)}>Click {count}</button>
+    </div>
+  );
 };
 
 export default Login;

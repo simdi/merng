@@ -19,7 +19,7 @@ const client = new ApolloClient({
 });
 
 
-function App() {
+const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -34,6 +34,6 @@ function App() {
       </Router>
     </ApolloProvider>
   );
-}
+};
 
 export default App;
