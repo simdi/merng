@@ -12,10 +12,11 @@
   "author": "Chisimdi Damian Ezeanieto",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "3.7.0",
+    "apollo-server": "3.10.3",
     "bcryptjs": "2.4.3",
     "dotenv": "16.0.0",
     "graphql": "16.4.0",
+    "graphql-subscriptions": "2.0.0",
     "jsonwebtoken": "8.5.1",
     "mongoose": "6.3.3"
   },
