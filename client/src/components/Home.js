@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Grid, Image, Loader,
+  Grid, Loader,
 } from 'semantic-ui-react';
 
 import usePosts from '../hooks/usePosts';
@@ -8,8 +8,6 @@ import PostCard from './PostCard';
 
 const Home = () => {
   const { loading, posts } = usePosts();
-
-  console.log({ posts });
 
   return (
     <Grid columns={3}>
