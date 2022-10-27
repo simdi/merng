@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import MenuBar from './components/MenuBar';
 import Register from './components/Register';
+import { AuthProvider } from './context/auth';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:8000'
@@ -22,16 +23,18 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="ui container">
-          <MenuBar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="login" element={<Login />} />
-            <Route exact path="register" element={<Register />} />
-          </Routes>
-        </div>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <div className="ui container">
+            <MenuBar />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="login" element={<Login />} />
+              <Route exact path="register" element={<Register />} />
+            </Routes>
+          </div>
+        </Router>
+      </AuthProvider>
     </ApolloProvider>
   );
 };

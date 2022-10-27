@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'semantic-ui-react';
 import gql from 'graphql-tag';
 
 import useForm from '../hooks/useForm';
+import { AuthContext } from '../context/auth';
 
 const LOGIN_USER = gql`
   mutation login($username: String!, $password: String!) {
@@ -19,6 +20,7 @@ const LOGIN_USER = gql`
 `;
 
 const Login = () => {
+  const context = useContext(AuthContext);
   const initialState = {
     username: '',
     password: '',
@@ -29,8 +31,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [addUser, { loading }] = useMutation(LOGIN_USER, {
-    update(_, result) {
-      console.log(result)
+    update(_, { data: { login: userData} }) {
+      context.login(userData);
       navigate('/');
     },
     onError(err) {

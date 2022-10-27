@@ -6,7 +6,7 @@ import User from '../../models/User';
 import { validateRegisterInput, validateLoginInput } from '../../utils/validators';
 
 const SECRET_KEY = process.env.SECRET_KEY;
-console.log({ SECRET_KEY });
+
 const generateToken = (user) => {
   return jwt.sign({
     id: user.id,
